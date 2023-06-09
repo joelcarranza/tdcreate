@@ -45,7 +45,7 @@ OR by passing content via stdin
 
 Recommended usage is with [pipx](https://pypa.github.io/pipx/)
 
-    pipx install tdcreate
+    pipx install git+https://github.com/joelcarranza/tdcreate
 
 ## Usage
 

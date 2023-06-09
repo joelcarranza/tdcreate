@@ -6,7 +6,8 @@ setup(
     description='A better template format for todoist projects',
     author='Joel Carranza',
     author_email='joel@joelcarranza.com',
-    py_modules=['tdcreate'],
+    url='https://github.com/joelcarranza/tdcreate',
+    packages=['tdcreate'],
     install_requires=[
         'Click',
         'requests'
