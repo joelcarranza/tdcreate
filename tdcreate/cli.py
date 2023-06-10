@@ -26,9 +26,14 @@ def create_project_properties(t):
 
 @click.command()
 @click.argument('template',type=click.File('r', encoding='utf-8'))
-@click.option('--token',type=str, envvar='TODOIST_API_TOKEN')
-@click.option('--name',type=str)
+@click.option('--token',type=str, envvar='TODOIST_API_TOKEN', help="Todoist API token")
+@click.option('--name',type=str, help="Override name of project created")
 def main(template, token, name):
+    """Create new Todoist project from template file
+    
+    To use, you must define the environment variable TODOIST_API_TOKEN 
+    with your Todoist API token or specify that value as argument with --token
+    """
     api = TodoistAPI(token)
 
     tt = parse_template(template)

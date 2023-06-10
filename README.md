@@ -1,13 +1,14 @@
 # tdcreate
 
-Author your templates for Todoist in a simple plain text format instead of their gross CSV format. 
+Command-line tool that lets you author your templates for Todoist in a simple plain text format instead of their gross [CSV format][csv]. 
 
 Example template file:
 
 ```
 # template.txt
-name = My Packing List
+name = 🏖️ Travel Packing List
 favorite = true
+color = blue
 
 # Template for when I need to pack on a trip
 
@@ -43,13 +44,27 @@ OR by passing content via stdin
 
 ## Installation
 
-Recommended usage is with [pipx](https://pypa.github.io/pipx/)
+Recommended usage is with [pipx][]
 
     pipx install git+https://github.com/joelcarranza/tdcreate
 
 ## Usage
 
-To use this tool, you must define the environment variable `TODOIST_API_TOKEN` with your Todoist API token. 
+```
+Usage: tdcreate [OPTIONS] TEMPLATE
+
+  Create new Todoist project from template file
+
+  To use, you must define the environment variable TODOIST_API_TOKEN  with
+  your Todoist API token or specify that value as argument with --token
+
+Options:
+  --token TEXT  Todoist API token
+  --name TEXT   Override name of project created
+  --help        Show this message and exit.
+```
+
+[pipx]: https://pypa.github.io/pipx/
 
 ## Template Text Format
 
@@ -61,7 +76,7 @@ Current properties:
 
 - `name` name of project to create. If not specified, will use the name of file 
 - `favorite` if "true" then the created project will be set as a favorite
-- `color` See [color names](https://developer.todoist.com/guides/#colors)
+- `color` See [color names][colors]
 - `view` either board or list (the default)
 - `parentid` an id of a todoist project to create the new project under
 - `parent` a name of a todoist project to create the new project under
@@ -88,4 +103,5 @@ Example Section:
 
 Any line that starts with `#` is interpreated as a **comment** 
 
-
+[colors]: https://developer.todoist.com/guides/#colors
+[csv]: https://todoist.com/help/articles/how-to-format-your-csv-file-so-you-can-import-it-into-todoist
